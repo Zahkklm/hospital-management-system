@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Hospital Management System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>🏥 Create Account</h2>
+                <p>Register for Hospital Management System</p>
+            </div>
+            
+            <div id="alert-container"></div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                    <div class="form-help">Must be unique and at least 3 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <div class="form-help">At least 8 characters with uppercase, lowercase, number and special character</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" class="form-control" required>
+                        <option value="">Select your role</option>
+                        <option value="receptionist">👩‍💼 Receptionist</option>
+                        <option value="doctor">👨‍⚕️ Doctor</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" id="registerBtn">
+                        <span id="registerText">Create Account</span>
+                        <span id="registerSpinner" class="d-none">Creating account...</span>
+                    </button>
+                </div>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="/login">Sign in here</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/auth.js"></script>
+</body>
+</html>
