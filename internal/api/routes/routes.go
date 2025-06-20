@@ -12,6 +12,7 @@ import (
 )
 
 func SetupRoutes(router *gin.Engine) {
+
 	// Initialize repositories
 	db := database.GetDB()
 	userRepo := repository.NewUserRepository(db)
@@ -34,13 +35,13 @@ func SetupRoutes(router *gin.Engine) {
 	router.GET("/register", authHandler.ShowRegisterPage)
 	router.POST("/api/auth/login", authHandler.Login)
 	router.POST("/api/auth/register", authHandler.Register)
+	router.GET("/dashboard", authHandler.ShowDashboard)
+	router.GET("/api/dashboard", authHandler.ShowDashboard)
 
 	// Protected routes
 	api := router.Group("/api")
 	api.Use(middleware.AuthMiddleware())
 	{
-		// Dashboard
-		api.GET("/dashboard", authHandler.ShowDashboard)
 		api.POST("/logout", authHandler.Logout)
 
 		// Patient routes

@@ -40,15 +40,22 @@ func (h *AuthHandler) Login(c *gin.Context) {
 		return
 	}
 
-	token, err := h.authService.Login(req.Username, req.Password)
+	// Get user data along with token
+	user, token, err := h.authService.LoginWithUser(req.Username, req.Password)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid credentials"})
 		return
 	}
 
+	// Return user data along with token
 	c.JSON(http.StatusOK, gin.H{
 		"success": true,
 		"token":   token,
+		"user": gin.H{
+			"id":       user.ID,
+			"username": user.Username,
+			"role":     user.Role,
+		},
 		"message": "Login successful",
 	})
 }
