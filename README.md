@@ -84,12 +84,10 @@ hospital-management-system/
 - `GET /api/users/:id` - Get user by ID (protected)
 - `PUT /api/users/:id` - Update user (protected)
 
-## Setup Instructions
+## Quick Start
 
 ### Prerequisites
-- Go 1.20 or higher
-- PostgreSQL 13+
-- Make (optional, for using Makefile commands)
+- Docker and Docker Compose
 
 ### Installation
 
@@ -99,57 +97,32 @@ hospital-management-system/
    cd hospital-management-system
    ```
 
-2. **Install Dependencies**:
+2. **Start the Application**:
    ```bash
-   make deps
-   # or
-   go mod download
+   docker-compose up --build
    ```
 
-3. **Environment Configuration**:
-   ```bash
-   cp .env.example .env
-   ```
-   Configure your `.env` file with:
-   ```env
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   DB_NAME=hospital_management
-   JWT_SECRET=your_jwt_secret_key
-   PORT=8080
-   ```
+That's it! The application will be available at `http://localhost:8080`
 
-4. **Database Setup**:
-   ```bash
-   # Create database
-   createdb hospital_management
-   
-   # Run migrations
-   psql -U <username> -d hospital_management -f internal/infrastructure/database/migrations/001_create_users_table.sql
-   psql -U <username> -d hospital_management -f internal/infrastructure/database/migrations/002_create_patients_table.sql
-   ```
+The Docker setup includes:
+- PostgreSQL database with automatic migrations
+- Go application with hot reload
+- All dependencies and environment configuration
 
-5. **Build and Run**:
-   ```bash
-   make run
-   # or
-   go run cmd/server/main.go
-   ```
+### Manual Setup (Alternative)
 
-### Docker Setup
+If you prefer to run without Docker:
 
-1. **Using Docker Compose**:
-   ```bash
-   docker-compose up -d
-   ```
+**Prerequisites:**
+- Go 1.20 or higher
+- PostgreSQL 13+
+- Make (optional, for using Makefile commands)
 
-2. **Build Docker Image**:
-   ```bash
-   make docker-build
-   make docker-run
-   ```
+**Steps:**
+1. Install Dependencies: `make deps`
+2. Configure `.env` file (copy from `.env.example`)
+3. Setup PostgreSQL database
+4. Run: `make run`
 
 ## Testing
 
