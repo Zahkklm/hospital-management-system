@@ -201,4 +201,4 @@ The project maintains high code quality through:
 
 ## API Documentation
 Comprehensive API documentation is available in the Postman collection:
-[Hospital Management API Collection](https://www.postman.com/workspace/My-Workspace~ec53562f-b09d-4deb-851e-c2a71a34a647/collection/19612596-70dc12c8-2b99-4ac4-b724-0a889de7283c?action=share&creator=19612596&active-environment=19612596-c1b274f7-9779-474a-8542-632cdacbb186)
+[Hospital Management API Collection](https://www.postman.com/urz25/workspace/ozgurapi/collection/19612596-eeeac3a8-62a3-40cc-91c5-9eeffe52f68d?action=share&creator=19612596)
